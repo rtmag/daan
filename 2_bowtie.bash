@@ -31,11 +31,24 @@ bowtie /root/resources/mm10_bowtie/mm10 -p 30 -t -m 1 -S --chunkmbs 4000 \
 <( zcat /root/daan/fastq_trim/Ageing.YB.RNA.Rep2.20160606.R1.OK_trimmed.fq.gz ) \
 /root/daan/bowtie/YB2_uniq.sam
 ################################################################################################
+samtools view -bS OB1_uniq.sam | samtools sort - -o OB1_uniq.bam
+samtools index OB1_uniq.bam
 
+samtools view -bS OB2_uniq.sam | samtools sort - -o OB2_uniq.bam
+samtools index OB2_uniq.bam
 
-samtools view -bS HCT_siControl_HWN2YCCXX_L5_uniq.sam | samtools sort - HCT_siControl_HWN2YCCXX_L5_uniq
-samtools index HCT_siControl_HWN2YCCXX_L5_uniq.bam
+samtools view -bS WE1_uniq.sam | samtools sort - -o WE1_uniq.bam
+samtools index WE1_uniq.bam
 
+samtools view -bS WE2_uniq.sam | samtools sort - -o WE2_uniq.bam
+samtools index WE2_uniq.bam
+
+samtools view -bS YB1_uniq.sam | samtools sort - -o YB1_uniq.bam
+samtools index YB1_uniq.bam
+
+samtools view -bS YB2_uniq.sam | samtools sort - -o YB2_uniq.bam
+samtools index YB2_uniq.bam
+################################################################################################
 
 python /home/roberto/myPrograms/RepEnrich/RepEnrich.py \
 /home/roberto/references/hg19_repeatmasker_clean.txt \
