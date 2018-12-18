@@ -1,6 +1,6 @@
 more mm10_repeatmasker.txt|grep -P -v "Simple_repeat|Low_complexity" > mm10_repeatmasker_clean.txt
 
-python /root/myPrograms/RepEnrich/RepEnrich.py /root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+python /root/myPrograms/RepEnrich/RepEnrich_setup.py /root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
 /root/resources/mm10_repeat/mm10.fasta /root/resources/mm10_repeat/setup_folder_mm10
 
 ########################################################################################################################
