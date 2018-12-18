@@ -1,5 +1,10 @@
+more mm10_repeatmasker.txt|grep -P -v "Simple_repeat|Low_complexity" > mm10_repeatmasker_clean.txt
 
-python /home/roberto/myPrograms/RepEnrich/RepEnrich.py \
+python /root/myPrograms/RepEnrich/RepEnrich.py /root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/resources/mm10_repeat/mm10.fasta /root/resources/mm10_repeat/setup_folder_mm10
+
+########################################################################################################################
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
 /home/roberto/references/hg19_repeatmasker_clean.txt \
 /home/roberto/deepa/novogene/repenrich HCT116_siC_DMSO \
 /home/roberto/references/RepEnrich_hg19/ \
