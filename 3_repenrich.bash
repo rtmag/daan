@@ -4,11 +4,51 @@ python /root/myPrograms/RepEnrich/RepEnrich_setup.py /root/resources/mm10_repeat
 /root/resources/mm10_repeat/mm10.fasta /root/resources/mm10_repeat/setup_folder_mm10
 
 ########################################################################################################################
+
 python /root/myPrograms/RepEnrich/RepEnrich.py  \
-/home/roberto/references/hg19_repeatmasker_clean.txt \
-/home/roberto/deepa/novogene/repenrich HCT116_siC_DMSO \
-/home/roberto/references/RepEnrich_hg19/ \
-/home/roberto/deepa/novogene/repenrich_bowtie/HCT116_siC_DMSO_multimap_1.fastq \
---fastqfile2 /home/roberto/deepa/novogene/repenrich_bowtie/HCT116_siC_DMSO_multimap_2.fastq \
-/home/roberto/deepa/novogene/repenrich_bowtie/HCT116_siC_DMSO_uniq.bam \
---cpus 30 --pairedend TRUE
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ OB1 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/OB1_multimap.fastq \
+/root/daan/bowtie/OB1_uniq.bam \
+--cpus 30 --pairedend FALSE
+
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ OB2 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/OB2_multimap.fastq \
+/root/daan/bowtie/OB2_uniq.bam \
+--cpus 30 --pairedend FALSE
+
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ WE1 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/WE1_multimap.fastq \
+/root/daan/bowtie/WE1_uniq.bam \
+--cpus 30 --pairedend FALSE
+
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ WE2 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/WE2_multimap.fastq \
+/root/daan/bowtie/WE2_uniq.bam \
+--cpus 30 --pairedend FALSE
+
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ YB1 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/YB1_multimap.fastq \
+/root/daan/bowtie/YB1_uniq.bam \
+--cpus 30 --pairedend FALSE
+
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/repenrich/ YB2 \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/bowtie/YB2_multimap.fastq \
+/root/daan/bowtie/YB2_uniq.bam \
+--cpus 30 --pairedend FALSE
