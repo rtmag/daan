@@ -52,3 +52,20 @@ python /root/myPrograms/RepEnrich/RepEnrich.py  \
 /root/daan/bowtie/YB2_multimap.fastq \
 /root/daan/bowtie/YB2_uniq.bam \
 --cpus 30 --pairedend FALSE
+
+###################################################################
+##### FOR ASIA; NOTES FOR RUNNING REPENRICH
+
+ python /root/myPrograms/RepEnrich/RepEnrich.py  \         Path to repenrich
+ /root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \ Path to the repeatmasker text file
+ /root/daan/repenrich/ \                                   Path to directory where you want to save the results  
+ YB2 \                                                     Label of your sample
+ /root/resources/mm10_repeat/setup_folder_mm10/ \          Path to rep_enrich directory (the tar file you downloaded)
+ /root/daan/bowtie/YB2_multimap.fastq \                    Path to multimap fastq
+ /root/daan/bowtie/YB2_uniq.bam \                          Path to uniquely mapped reads bam file
+ --cpus 16 --pairedend TRUE                               Number of CPUs and whether your samples are PAIREDEND
+ 
+ 
+
+
+
