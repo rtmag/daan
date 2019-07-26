@@ -11,7 +11,7 @@ trim_galore --illumina -q 20 --fastqc -o /root/daan/chip-seq/fastq_trim/ $bamfil
 done
 ##################
 ##################
-#Bowtie & SAMTOOLS
+#Bowtie 
 for fastq in /root/daan/chip-seq/fastq_trim/*_trimmed.fq.gz ;
 do echo $fastq; 
 name=${fastq//\/root\/daan\/chip-seq\/fastq_trim\/Ageing\.} ;
@@ -24,19 +24,12 @@ done
 ##################
 ##################
 #SAMTOOLS
-for fastq in /root/daan/chip-seq/fastq_trim/*_trimmed.fq.gz ;
-do echo $fastq; 
-name=${fastq//\/root\/daan\/chip-seq\/fastq_trim\/Ageing\.} ;
-name=${name//\.R1\_trimmed\.fq\.gz} ;
-samtools view -bS OB1_uniq.sam | samtools sort - -o OB1_uniq.bam ;
-samtools index OB1_uniq.bam ;
+for sam in /root/daan/chip-seq/bowtie/*_uniq.sam ;
+do echo $sam; 
+samtools view -bS sam | samtools sort - -o sam.bam ;
+samtools index sam.bam ;
 done
 ##################
-
-
-
-samtools view -bS OB1_uniq.sam | samtools sort - -o OB1_uniq.bam
-samtools index OB1_uniq.bam
 
 
 
