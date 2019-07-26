@@ -22,8 +22,21 @@ bowtie /root/resources/mm10_bowtie/mm10 -p 30 -t -m 1 -S --chunkmbs 4000 \
 /root/daan/chip-seq/bowtie/$name\_uniq.sam &> /root/daan/chip-seq/bowtie/$name.bowtie.log ;
 done
 ##################
+##################
+#SAMTOOLS
+for fastq in /root/daan/chip-seq/fastq_trim/*_trimmed.fq.gz ;
+do echo $fastq; 
+name=${fastq//\/root\/daan\/chip-seq\/fastq_trim\/Ageing\.} ;
+name=${name//\.R1\_trimmed\.fq\.gz} ;
+samtools view -bS OB1_uniq.sam | samtools sort - -o OB1_uniq.bam ;
+samtools index OB1_uniq.bam ;
+done
+##################
 
 
+
+samtools view -bS OB1_uniq.sam | samtools sort - -o OB1_uniq.bam
+samtools index OB1_uniq.bam
 
 
 
