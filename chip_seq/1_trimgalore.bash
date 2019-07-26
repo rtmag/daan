@@ -17,8 +17,14 @@ do echo $fastq;
 name=${fastq//\/root\/daan\/chip-seq\/fastq_trim\/Ageing\.} ;
 name=${name//\.R1\_trimmed\.fq\.gz} ;
 bowtie /root/resources/mm10_bowtie/mm10 -p 30 -t -m 1 -S --chunkmbs 4000 \
---max /root/daan/chip-seq/bowtie/$name_multimap.fastq \
+--max /root/daan/chip-seq/bowtie/$name\_multimap.fastq \
 <( zcat $fastq ) \
-/root/daan/chip-seq/bowtie/$name_uniq.sam &> /root/daan/chip-seq/bowtie/$name.bowtie.log ;
+/root/daan/chip-seq/bowtie/$name\_uniq.sam &> /root/daan/chip-seq/bowtie/$name.bowtie.log ;
 done
 ##################
+
+
+
+
+
+
