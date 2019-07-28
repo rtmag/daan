@@ -26,7 +26,7 @@ done
 #SAMTOOLS
 for sam in /root/daan/chip-seq/bowtie/*_uniq.sam ;
 do echo $sam; 
-samtools view -bS sam | samtools sort - -o sam.bam ;
+samtools view -bS $sam | samtools sort - -o sam.bam ;
 samtools index sam.bam ;
 done
 ##################
