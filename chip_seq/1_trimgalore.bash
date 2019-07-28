@@ -1,6 +1,3 @@
-trim_galore --illumina -q 20 --fastqc -o /root/daan/fastq_trim/ \
-Ageing.OB.RNA.Rep1.20170522.R1.OK.fastq.gz &
-
 ##################
 #TRIM
 for bamfile in /root/daan/chip-seq/fastq/*fastq.gz ;
@@ -30,7 +27,19 @@ samtools view -bS $sam | samtools sort - -o sam.bam ;
 samtools index sam.bam ;
 done
 ##################
-
-
-
-
+#RepEnrich
+for rep in /root/daan/chip-seq/bowtie/*_uniq.sam ;
+do echo "####################################"; 
+name=${rep//\/root\/daan\/chip-seq\/bowtie\/} ;
+name=${name//\_uniq\.sam} ;
+echo $name;
+python /root/myPrograms/RepEnrich/RepEnrich.py  \
+/root/resources/mm10_repeat/mm10_repeatmasker_clean.txt \
+/root/daan/chip-seq/repenrich/ $name \
+/root/resources/mm10_repeat/setup_folder_mm10/ \
+/root/daan/chip-seq/bowtie/$name\_multimap.fastq \
+/root/daan/chip-seq/bowtie/$name\_uniq.sam.bam \
+--cpus 30 --pairedend FALSE ;
+done
+##################
+##################
